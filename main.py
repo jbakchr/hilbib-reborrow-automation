@@ -3,8 +3,7 @@ from datetime import datetime
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
-from art import *
+from art import tprint
 
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
