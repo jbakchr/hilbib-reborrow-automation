@@ -1,5 +1,4 @@
 from time import sleep
-from datetime import datetime
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -12,7 +11,7 @@ options.add_argument("--start-maximized")
 driver = webdriver.Chrome(options=options)
 
 
-def main():
+def main() -> None:
     log_into_hilbib()
 
 
@@ -33,22 +32,22 @@ def log_into_hilbib() -> None:
     login_by_form()
 
 
-def handle_cookie_popup():
+def handle_cookie_popup() -> None:
     sleep(2)
     click_btn(By.CLASS_NAME, "coi-banner__accept")
 
 
-def click_main_page_login_btn():
+def click_main_page_login_btn() -> None:
     sleep(1)
     click_btn(By.CLASS_NAME, "btn-ui")
 
 
-def click_side_bar_login_btn():
+def click_side_bar_login_btn() -> None:
     sleep(1)
     click_btn(By.CLASS_NAME, "btn-primary")
 
 
-def login_by_form():
+def login_by_form() -> None:
     sleep(1)
 
     with open("./credentials.txt") as f:
