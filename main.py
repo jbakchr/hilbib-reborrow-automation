@@ -14,7 +14,7 @@ driver = webdriver.Chrome(options=options)
 
 
 def main():
-    _log_into_hilbib()
+    log_into_hilbib()
 
     # _go_to_loan_overview()
 
@@ -23,24 +23,35 @@ def main():
     tprint("#automatethefuckoutofeverything")
 
 
-def _log_into_hilbib() -> None:
+def log_into_hilbib() -> None:
+    # Go to hilbib.dk
     driver.get("https://hilbib.dk/")
 
-    _click_login_menu_btn()
+    # Handle cookie pop up
+    handle_cookie_popup()
 
-    _click_login_btn()
+    sleep(100)
 
-    _login_by_form()
+    # _click_login_menu_btn()
+
+    # _click_login_btn()
+
+    # _login_by_form()
+
+
+def handle_cookie_popup():
+    sleep(2)
+    click_btn(By.CLASS_NAME, "coi-banner__accept")
 
 
 def _click_login_menu_btn() -> None:
     sleep(1)
-    _click_btn(By.CLASS_NAME, "header__menu-profile")
+    click_btn(By.CLASS_NAME, "header__menu-profile")
 
 
 def _click_login_btn():
     sleep(1)
-    _click_btn(By.CLASS_NAME, "btn-primary")
+    click_btn(By.CLASS_NAME, "btn-primary")
 
 
 def _login_by_form():
@@ -50,7 +61,7 @@ def _login_by_form():
     _fill_form_input("userid-input", creds[0])
     _fill_form_input("pin-input", creds[1])
 
-    _click_btn(By.ID, "borchk-submit")
+    click_btn(By.ID, "borchk-submit")
 
 
 def _fill_form_input(id: str, text: str) -> None:
@@ -60,7 +71,7 @@ def _fill_form_input(id: str, text: str) -> None:
     form_field.send_keys(text)
 
 
-def _click_btn(by: str, value: str) -> None:
+def click_btn(by: str, value: str) -> None:
     btn = driver.find_element(by, value)
     btn.click()
 
