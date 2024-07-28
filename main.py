@@ -1,4 +1,5 @@
 from time import sleep
+from datetime import datetime
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -11,8 +12,10 @@ options.add_argument("--start-maximized")
 driver = webdriver.Chrome(options=options)
 
 
-def main() -> None:
+def main(last_run_date) -> None:
     log_into_hilbib()
+
+    update_last_run_date(last_run_date)
 
 
 def log_into_hilbib() -> None:
@@ -71,5 +74,17 @@ def click_btn(by: str, value: str) -> None:
     btn.click()
 
 
+def update_last_run_date(last_run_date):
+    print("Inside last run")
+    with open("./last_run.txt", "w") as f:
+        f.write(last_run_date)
+
+
 if __name__ == "__main__":
-    main()
+    today = datetime.now().date()
+
+    with open("./last_run.txt") as f:
+        last_run_date = f.read()
+
+    if today != last_run_date:
+        main(last_run_date)
