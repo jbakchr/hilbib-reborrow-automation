@@ -7,15 +7,15 @@ from selenium.webdriver.common.by import By
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 # options.add_argument("--auto-open-devtools-for-tabs")
-# options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 
 driver = webdriver.Chrome(options=options)
 
 
-def main(last_run_date) -> None:
+def main(date_today) -> None:
     log_into_hilbib()
 
-    update_last_run_date(last_run_date)
+    update_last_run_date(date_today)
 
 
 def log_into_hilbib() -> None:
@@ -74,17 +74,18 @@ def click_btn(by: str, value: str) -> None:
     btn.click()
 
 
-def update_last_run_date(last_run_date):
-    print("Inside last run")
+def update_last_run_date(date_today) -> None:
     with open("./last_run.txt", "w") as f:
-        f.write(last_run_date)
+        f.write(date_today)
 
 
 if __name__ == "__main__":
-    today = datetime.now().date()
+    today = str(datetime.now().date())
 
     with open("./last_run.txt") as f:
         last_run_date = f.read()
 
     if today != last_run_date:
-        main(last_run_date)
+        main(today)
+    else:
+        print("Already ran today")
