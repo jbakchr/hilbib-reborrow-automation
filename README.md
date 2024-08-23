@@ -1,6 +1,13 @@
 # Automatiseret genlån af biblioteksbøger fra Hillerød bibliotek
 Dette script kan bruges til at automatisere genlån af bøger fra Hillerød bibliotek, således at man, alt andet lige, kan undgå at få bøder - eller i hvert fald udsætte muligheden for samme lidt.
 
+## Demo
+
+
+https://github.com/user-attachments/assets/8adcea4d-4042-4c45-bd4d-3a88b798b0a6
+
+
+
 ## Baggrund
 Baggrunden for scriptet er, at jeg, Jonas, desværre ofte glemmer at aflevere mine biblioteksbøger lånt fra Hillerød Bibliotek til tiden. Når det sker, så får, forståeligt nok, bøder for at glemme det. Det vil jeg selvfølgelig gerne undgå, og har derfor lavet dette script, så jeg i det mindste automatisk får genlånt mine bøger, og dermed i hvert fald udsætter muligheden for at få bøder, og forhåbentlig husker, grundet den lange lånetid, at aflevere mine bøger på et eller andet tidspunkt under den lange lånetid.
 
