@@ -1,2 +1,2 @@
-# Hilleroed library books reborrow automation
-Hell yeah!
+# Automatiseret genlån af biblioteksbøger fra Hillerød bibliotek
+
