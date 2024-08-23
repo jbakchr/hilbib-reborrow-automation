@@ -6,8 +6,7 @@ from selenium.webdriver.common.by import By
 
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
-# options.add_argument("--auto-open-devtools-for-tabs")
-# options.add_argument("--headless=new")
+# options.add_argument("--headless=new") # Uncomment this for headless mode
 options.add_argument("--disable-search-engine-choice-screen")
 
 driver = webdriver.Chrome(options=options)
@@ -114,7 +113,7 @@ def click_group_loans_element():
 
 
 def click_renewable_loans_element():
-    sleep(1)
+    sleep(2)
 
     renewable_loans = driver.find_element(
         By.CSS_SELECTOR,
@@ -138,5 +137,3 @@ if __name__ == "__main__":
 
     if today != last_run_date:
         main(today)
-    else:
-        print("Already ran today")
