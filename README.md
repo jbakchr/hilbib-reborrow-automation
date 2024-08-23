@@ -30,4 +30,18 @@ pip install selenium
 ##### Download af Chromedriver
 Google fx på frasen "how to get chrome driver for python selenium" for at se, hvordan dette gøres.
 
+### Hvordan man bruger scriptet
+For at bruge scriptet gøres følgende:
+1. Lav en 'credentials.txt' med CPR-nummer og PIN
+2. Kør scriptet
 
+#### Lav en 'credentials.txt'
+Da scriptet logger ind med ens CPR-nummer og PIN på hilbib.dk, så skal disse 2 oplysninger gemmes i en 'txt' fil.
+
+Lav derfor i roden af projektet en fil kaldet 'credentials.txt', og indtast først dit CPR-nummer og din PIN adskilt af et mellemrum.
+
+#### Kør scriptet
+Når alt er på plads, så eksekveres scriptet blot ved køre følgende kommando i roden af dit projekt:
+```bash
+python3 main.py
+```
