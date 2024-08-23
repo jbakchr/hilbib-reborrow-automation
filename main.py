@@ -7,13 +7,16 @@ from selenium.webdriver.common.by import By
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 # options.add_argument("--auto-open-devtools-for-tabs")
-options.add_argument("--headless=new")
+# options.add_argument("--headless=new")
+options.add_argument("--disable-search-engine-choice-screen")
 
 driver = webdriver.Chrome(options=options)
 
 
 def main(date_today) -> None:
     log_into_hilbib()
+
+    renew_material()
 
     update_last_run_date(date_today)
 
@@ -77,6 +80,54 @@ def click_btn(by: str, value: str) -> None:
 def update_last_run_date(date_today) -> None:
     with open("./last_run.txt", "w") as f:
         f.write(date_today)
+
+
+def renew_material() -> None:
+
+    click_all_loans_element()
+
+    click_group_loans_element()
+
+    click_renewable_loans_element()
+
+    click_renew_btn()
+
+
+def click_all_loans_element() -> None:
+    sleep(1)
+
+    all_loans = driver.find_element(
+        By.CSS_SELECTOR,
+        "#main-content > div > div > div > div > div.status-userprofile > div:nth-child(1) > div.mt-8 > a",
+    )
+    all_loans.click()
+
+
+def click_group_loans_element():
+    sleep(1)
+
+    group_loans_btn = driver.find_element(
+        By.CSS_SELECTOR,
+        "#main-content > div > div > div > div > div:nth-child(2) > div > div:nth-child(3) > button",
+    )
+    group_loans_btn.click()
+
+
+def click_renewable_loans_element():
+    sleep(1)
+
+    renewable_loans = driver.find_element(
+        By.CSS_SELECTOR,
+        "#main-content > div > div > div > div > div.list-reservation-container.my-32 > ul:nth-child(2) > div",
+    )
+    renewable_loans.click()
+
+
+def click_renew_btn():
+    sleep(1)
+
+    renew_btn = driver.find_element(By.CSS_SELECTOR, "#renew-several")
+    renew_btn.click()
 
 
 if __name__ == "__main__":
