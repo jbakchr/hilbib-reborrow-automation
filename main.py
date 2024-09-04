@@ -5,9 +5,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 options = webdriver.ChromeOptions()
-options.add_argument("--start-maximized")
-# options.add_argument("--headless=new") # Uncomment this for headless mode
-options.add_argument("--disable-search-engine-choice-screen")
+# options.add_argument("--start-maximized")
+options.add_argument("--headless=new")  # Uncomment this for headless mode
+# options.add_argument("--disable-search-engine-choice-screen")
 
 driver = webdriver.Chrome(options=options)
 
